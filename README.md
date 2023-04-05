@@ -7,4 +7,4 @@
 
 
 2. To run API command : yarn install && docker-compose up
-3. To see documentation API : open http://localhost:3000
+3. To see documentation API : open http://localhost:3000/api
