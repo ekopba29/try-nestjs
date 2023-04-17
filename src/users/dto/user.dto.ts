@@ -4,6 +4,10 @@ import { Transform, Type } from "class-transformer";
 import { IsAlpha, IsDate, IsEmail, IsNotEmpty, IsEnum, IsEmpty, IsDateString, ValidateIf, MinDate } from "class-validator";
 import { GenderPipe } from "../custom-validation/gender.validation";
 
+enum Gender {
+    male = 'Male',
+    Female = 'Female'
+}
 export class UserDTO {
 
     @ApiProperty({ description: 'username', example: 'epba' })
@@ -24,7 +28,8 @@ export class UserDTO {
 
     @ApiProperty({ description: 'gender between MALE | FEMALE', example: 'Male' })
     @IsNotEmpty()
-    @ValidateIf((object, value) => !['Male', 'Female'].includes(value))
+    @IsEnum(Gender)
+    // @ValidateIf((object, value) => ['Male', 'Female'].includes(value))
     gender: String;
 
     @IsNotEmpty()

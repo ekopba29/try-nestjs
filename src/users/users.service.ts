@@ -42,7 +42,7 @@ export class UsersService {
         const interests: [] = []
 
         const birthDate = new Date(userDto.birth_date);
-        const [day, month, year]: [Number, Number, Number] = [birthDate.getDay(), birthDate.getMonth() + 1, birthDate.getFullYear()];
+        const [day, month, year]: [Number, Number, Number] = [birthDate.getDate(), birthDate.getMonth() + 1, birthDate.getFullYear()];
         const zodiac = getSign({ month, day })
         const shio = getZodiac(year)
 
